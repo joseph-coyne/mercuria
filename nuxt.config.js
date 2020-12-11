@@ -5,7 +5,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'Mercuria', name: 'Mercuria', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -31,7 +31,35 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/firebase',
   ],
+  firebase: {
+    config: {
+      apiKey: 'AIzaSyBnnaSh0mr-jH-4V4BUkpU6Ta-Kh0i4rbA',
+      authDomain: 'mercuria-b1fea.firebaseapp.com',
+      databaseURL: 'https://mercuria-b1fea.firebaseio.com',
+      projectId: 'mercuria-b1fea',
+      storageBucket: 'mercuria-b1fea.appspot.com',
+      messagingSenderId: '728967272416',
+      appId: '1:728967272416:web:21dd4a4b2cb7fbb3043d85',
+      measurementId: 'G-2SYDR2XPTD',
+    },
+    services: {
+      auth: {
+        persistence: 'local',
+        initialize: {
+          onAuthStateChangedAction: 'auth/onAuthStateChangedAction',
+          subscribeManually: false,
+        },
+        ssr: false,
+        // emulatorPort: 9099,
+        // emulatorHost: 'http://localhost',
+      },
+      database: {
+        databaseURL: 'https://mercuria-b1fea.firebaseio.com/',
+      },
+    },
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
