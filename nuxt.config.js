@@ -11,10 +11,10 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: ['~/assets/css/tailwind.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: [{ src: '~/plugins/vue-hammer.js', mode: 'client' }],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -23,16 +23,22 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/pwa
+    // https://go.nuxtjs.dev/pwa\
+    '@nuxtjs/tailwindcss',
     '@nuxtjs/pwa',
     '@nuxtjs/firebase',
   ],
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: '~/config/tailwind.config.json',
+    exposeConfig: true,
+    config: {},
+  },
   firebase: {
     config: {
       apiKey: 'AIzaSyBnnaSh0mr-jH-4V4BUkpU6Ta-Kh0i4rbA',
@@ -55,9 +61,7 @@ export default {
         // emulatorPort: 9099,
         // emulatorHost: 'http://localhost',
       },
-      database: {
-        databaseURL: 'https://mercuria-b1fea.firebaseio.com/',
-      },
+      database: true,
     },
   },
 

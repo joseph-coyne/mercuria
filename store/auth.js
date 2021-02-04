@@ -2,19 +2,26 @@
 
 export const state = () => ({
   user: null,
+  users: [],
 })
 
 export const actions = {
-  onAuthStateChangedAction: (ctx, { authUser, claims }) => {
+  onAuthStateChangedAction(ctx, { authUser }) {
     if (authUser) {
-      console.log('yas')
-      const { uid, email } = authUser
-      const user = { email, uid }
-      ctx.commit('login', user)
+      ctx.commit('login', authUser)
+      this.$fire.database
+        .ref(`users/${authUser.uid}`)
+        .once('value', (snapshot) => {
+          ctx.commit('setUserData', snapshot.val())
+        })
     }
   },
 }
 
 export const mutations = {
-  login: (state, val) => (state.user = val),
+  login: (state, val) => {
+    const { uid, email } = val
+    state.user = { email, uid }
+  },
+  setUserData: (state, val) => (state.userData = val),
 }

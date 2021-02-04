@@ -1,28 +1,10 @@
 <template>
   <div
-    class="min-h-screen flex justify-center items-center text-center mx-auto;"
+    class="flex justify-center items-center h-full text-center mx-auto bg-gray-100"
   >
-    <div>
-      <Logo />
-      <h1 class="title">Mercuria</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+    <div class="w-full">
+      <!-- <h1 class="title">Mercuria</h1> -->
+      <Gather />
     </div>
   </div>
 </template>

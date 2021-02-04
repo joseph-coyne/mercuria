@@ -1,13 +1,19 @@
 <template>
   <div>
-    <input type="email" v-model="email" class="border" />
-    <input type="password" v-model="password" class="border" />
+    <input v-model="email" type="email" class="border" />
+    <input v-model="password" type="password" class="border" />
     <button @click="signIn">Sign in</button>
-    <input type="email" v-model="email" class="border" />
-    <input type="password" v-model="password" class="border" />
+    <input v-model="email" type="email" class="border" />
+    <input v-model="password" type="password" class="border" />
     <button @click="signUp">Sign up</button>
 
     <button @click="signOut">Sign Out</button>
+    username <input v-model="username" type="text" value="Username" />
+    profession
+    <select v-model="profession" name="profession">
+      <option value="Blacksmith">Blacksmith</option>
+      <option value="Carpenter">Carpenter</option>
+    </select>
   </div>
 </template>
 
@@ -17,6 +23,8 @@ export default {
     return {
       email: null,
       password: null,
+      username: null,
+      profession: null,
     }
   },
   methods: {
@@ -24,7 +32,14 @@ export default {
       this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
     },
     signUp() {
-      this.$fire.auth.createUserWithEmailAndPassword(this.email, this.password)
+      this.$fire.auth
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((res) => {
+          this.$fire.database.ref(`users/${res.user.uid}`).set({
+            username: this.username,
+            profession: this.profession,
+          })
+        })
     },
     signOut() {
       this.$fire.auth.signOut()
