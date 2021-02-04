@@ -1,5 +1,8 @@
 <template>
   <div class="sheet-wrap">
+    <h1 class="z-50 text-red-500">
+      {{ lastPosition }}
+    </h1>
     <div class="fixed inset-0 bg-black opacity-10"></div>
     <div
       ref="sheet"
@@ -12,8 +15,6 @@
         v-hammer:panend="(event) => onPanEnd(event)"
         class="py-1"
       >
-        <!-- v-hammer:pandown="(event) => onPanDown(event)" -->
-
         <span
           class="block h-1 w-10 rounded-full bg-gray-400 mx-auto cursor-move active:cursor-grab"
         ></span>
@@ -26,8 +27,12 @@
 export default {
   name: 'BottomSheet',
   props: {
-    initial: String,
+    initial: {
+      type: String,
+      default: 'closed',
+    },
   },
+
   data() {
     return {
       lastPosition: 0,
@@ -51,38 +56,45 @@ export default {
     }
   },
   methods: {
-    onPan(event) {
-      const sheet = this.$refs.sheet
-      console.log(sheet.style.maxHeight, 'start')
-      console.log(event.deltaY)
-      if (event.deltaY < 0) {
-        sheet.style.maxHeight =
-          Math.abs(event.deltaY) + this.lastPosition + 'px'
-      } else if (event.deltaY > 0) {
-        sheet.style.maxHeight = this.lastPosition - event.deltaY + 'px'
+    onPan(e) {
+      console.log(e.deltaY)
+      if (e.direction === 8) {
+        this.onPanUp(e)
+      } else if (e.direction === 16) {
+        this.onPanDown(e)
       }
     },
+    onPanUp(e) {
+      console.log('up')
+      const sheet = this.$refs.sheet
+      console.log(this.lastPosition)
+      sheet.style.maxHeight = Math.abs(e.deltaY) + this.lastPosition + 'px'
+      console.log(this.lastPosition)
+    },
+    onPanDown(e) {
+      console.log('down')
+      const sheet = this.$refs.sheet
+      sheet.style.maxHeight = this.lastPosition - e.deltaY + 'px'
+    },
     onPanStart() {
+      console.log('start')
       this.removeClass()
     },
-    onPanEnd(event) {
+    onPanEnd(e) {
+      console.log('end')
       const sheet = this.$refs.sheet
-      this.snap(sheet.clientHeight, event.deltaY)
+      this.snap(sheet.clientHeight, e.deltaY)
     },
     snap(height, delta) {
       const wh = window.innerHeight
       const half = wh / 2
 
       console.log(height, half, delta)
-      if (height < half + 25 && delta > 0) {
+      if (height < half - 25 && delta > 0) {
         this.closeSheet()
-      } else if (
-        (height < wh && height > half && delta < 0) ||
-        (height < half && height > 60 && delta < 0)
-      ) {
+      } else if (height <= half + 35 || delta > 0) {
         this.halfSheet()
-        console.log(Math.abs(height - half))
-      } else if (height > half + 25 && delta < 0) {
+      } else if (height > half + 15) {
         this.fullSheet()
       }
     },
@@ -97,27 +109,24 @@ export default {
       sheet.classList.add('sheet-closed')
       sheet.classList.remove('sheet-half')
       sheet.classList.remove('sheet-full')
-      sheet.removeAttribute('style')
-      this.setLastPosition()
+      this.setLastPosition(sheet)
     },
     halfSheet() {
       const sheet = this.$refs.sheet
       sheet.classList.add('sheet-half')
-      sheet.removeAttribute('style')
-      this.setLastPosition()
+      this.setLastPosition(sheet)
     },
     fullSheet() {
       const sheet = this.$refs.sheet
       sheet.classList.add('sheet-full')
-      sheet.removeAttribute('style')
-      this.setLastPosition()
+      this.setLastPosition(sheet)
     },
-    setLastPosition() {
-      const sheet = this.$refs.sheet
+    setLastPosition(sheet) {
+      sheet.removeAttribute('style')
       setTimeout(function () {
         this.lastPosition = sheet.clientHeight
         console.log(this.lastPosition)
-      }, 450)
+      }, 150)
     },
   },
 
