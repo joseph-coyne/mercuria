@@ -5,7 +5,7 @@
     <div
       class="bg-gradient-to-br from-gray-400 to-gray-300 rounded-br-3xl overflow-hidden"
     >
-      <img src="img/ore/st_b_04.png" alt="" class="" />
+      <img src="@/static/img/ore/st_b_04.png" />
     </div>
     <p class="font-medium text-lg leading-snug text-gray-600">1</p>
   </div>

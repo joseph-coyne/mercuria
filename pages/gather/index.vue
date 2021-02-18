@@ -1,9 +1,8 @@
 <template>
-  <div
-    class="flex justify-center items-center h-full text-center mx-auto bg-gray-100"
-  >
-    <h1 class="title">Mercuria</h1>
-    <BottomSheet :initial="'half'"> </BottomSheet>
+  <div class="flex justify-center items-center h-full text-center mx-auto">
+    <div class="w-full">
+      <Gather />
+    </div>
   </div>
 </template>
 

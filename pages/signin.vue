@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <input v-model="email" type="email" class="border" />
     <input v-model="password" type="password" class="border" />
     <button @click="signIn">Sign in</button>

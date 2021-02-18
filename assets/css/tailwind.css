@@ -26,13 +26,5 @@
 @tailwind screens;
 
 @layer utilities {
-  .sheet-closed {
-    max-height: 56px;
-  }
-  .sheet-half {
-    max-height: calc(50% - 56px);
-  }
-  .sheet-full {
-    max-height: calc(100% - 56px);
-  }
+
 }

@@ -11,6 +11,10 @@
     "lint": "npm run lint:js"
   },
   "dependencies": {
+    "@capacitor/android": "^2.4.6",
+    "@capacitor/cli": "^2.4.6",
+    "@capacitor/core": "^2.4.6",
+    "@capacitor/ios": "^2.4.6",
     "@nuxtjs/firebase": "^7.1.2",
     "@nuxtjs/pwa": "^3.0.2",
     "autoprefixer": "^9.8.6",
@@ -26,6 +30,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^3.3.4",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.10.0",

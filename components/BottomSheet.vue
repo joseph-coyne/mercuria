@@ -1,22 +1,19 @@
 <template>
-  <div class="sheet-wrap">
-    <h1 class="z-50 text-red-500">
-      {{ lastPosition }}
-    </h1>
-    <div class="fixed inset-0 bg-black opacity-10"></div>
+  <div class="sheet-wrap overflow-hidden">
+    <!-- <div class="fixed inset-0 bg-black opacity-10 overflow-hidden"></div> -->
     <div
       ref="sheet"
-      class="absolute inset-x-0 bottom-0 top-10 bg-white rounded-t-xl shadow-lg h-screen transition-all duration-200 ease"
+      class="absolute inset-x-0 bottom-0 top-10 flex flex-col content-center items-center bg-white rounded-t-xl shadow-lg h-screen transition-all duration-200 ease"
     >
       <header
         ref="handle"
         v-hammer:pan="(event) => onPan(event)"
-        v-hammer:panstart="onPanStart"
         v-hammer:panend="(event) => onPanEnd(event)"
-        class="py-1"
+        v-hammer:swipe.up="onSwipeUp"
+        class="z-50 pt-2 pb-10 px-10"
       >
         <span
-          class="block h-1 w-10 rounded-full bg-gray-400 mx-auto cursor-move active:cursor-grab"
+          class="block h-1 w-12 rounded-full bg-gray-400 mx-auto cursor-move active:cursor-grab"
         ></span>
       </header>
       <slot></slot>
@@ -32,12 +29,12 @@ export default {
       default: 'closed',
     },
   },
-
   data() {
     return {
       lastPosition: 0,
     }
   },
+
   mounted() {
     this.lastPosition = this.$refs.sheet.clientHeight
     this.$refs.handle.hammer.set({
@@ -55,41 +52,46 @@ export default {
         this.closeSheet()
     }
   },
+
   methods: {
     onPan(e) {
-      console.log(e.deltaY)
+      const sheet = this.$refs.sheet
       if (e.direction === 8) {
-        this.onPanUp(e)
+        this.onPanUp(e, sheet)
       } else if (e.direction === 16) {
-        this.onPanDown(e)
+        this.onPanDown(e, sheet)
       }
     },
-    onPanUp(e) {
-      console.log('up')
-      const sheet = this.$refs.sheet
-      console.log(this.lastPosition)
+    onPanUp(e, sheet) {
+      this.removeClass()
       sheet.style.maxHeight = Math.abs(e.deltaY) + this.lastPosition + 'px'
-      console.log(this.lastPosition)
     },
-    onPanDown(e) {
-      console.log('down')
-      const sheet = this.$refs.sheet
+    onPanDown(e, sheet) {
+      this.removeClass()
       sheet.style.maxHeight = this.lastPosition - e.deltaY + 'px'
     },
-    onPanStart() {
-      console.log('start')
-      this.removeClass()
-    },
     onPanEnd(e) {
-      console.log('end')
       const sheet = this.$refs.sheet
-      this.snap(sheet.clientHeight, e.deltaY)
+      if (e.deltaY > sheet.clientHeight / 2) {
+        this.closeSheet()
+      } else {
+        this.snap(sheet.clientHeight, e.deltaY)
+      }
+    },
+    onSwipeUp() {
+      const sheet = this.$refs.sheet.classList
+      if (sheet.contains('sheet-closed')) {
+        this.removeClass()
+        this.halfSheet()
+      } else if (sheet.contains('sheet-half')) {
+        this.removeClass()
+        this.fullSheet()
+      }
     },
     snap(height, delta) {
       const wh = window.innerHeight
       const half = wh / 2
 
-      console.log(height, half, delta)
       if (height < half - 25 && delta > 0) {
         this.closeSheet()
       } else if (height <= half + 35 || delta > 0) {
@@ -123,10 +125,9 @@ export default {
     },
     setLastPosition(sheet) {
       sheet.removeAttribute('style')
-      setTimeout(function () {
+      setTimeout(() => {
         this.lastPosition = sheet.clientHeight
-        console.log(this.lastPosition)
-      }, 150)
+      }, 450)
     },
   },
 
@@ -134,4 +135,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.sheet-closed {
+  max-height: 5rem;
+}
+.sheet-half {
+  max-height: calc(50% - 56px);
+}
+.sheet-full {
+  max-height: calc(100% - 56px);
+}
+</style>

@@ -2,8 +2,10 @@
   <div
     class="flex justify-center items-center h-full text-center mx-auto bg-gray-100"
   >
-    <h1 class="title">Mercuria</h1>
-    <BottomSheet :initial="'half'"> </BottomSheet>
+    <h1 class="title">Gather</h1>
+    <BottomSheet :initial="'half'">
+      <NuxtChild />
+    </BottomSheet>
   </div>
 </template>
 

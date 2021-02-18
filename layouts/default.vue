@@ -1,7 +1,6 @@
 <template>
-  <div class="select-none">
+  <div class="select-none h-screen bg-gray-100">
     <NavBar />
-
     <Nuxt />
   </div>
 </template>

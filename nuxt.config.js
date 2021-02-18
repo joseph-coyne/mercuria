@@ -24,6 +24,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/svg',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -39,6 +40,10 @@ export default {
     exposeConfig: true,
     config: {},
   },
+  server: {
+    port: 8000, // default: 3000
+    host: '0.0.0.0', // default: localhost
+  },
   firebase: {
     config: {
       apiKey: 'AIzaSyBnnaSh0mr-jH-4V4BUkpU6Ta-Kh0i4rbA',
@@ -50,6 +55,7 @@ export default {
       appId: '1:728967272416:web:21dd4a4b2cb7fbb3043d85',
       measurementId: 'G-2SYDR2XPTD',
     },
+
     services: {
       auth: {
         persistence: 'local',
