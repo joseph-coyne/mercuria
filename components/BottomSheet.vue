@@ -1,5 +1,8 @@
 <template>
-  <div class="sheet-wrap overflow-hidden">
+  <div class="z-50 sheet-wrap overflow-hidden">
+    <NavBar @toggleMenu="openMenu($event)" />
+
+    <!-- Optional dimmed overlay  -->
     <!-- <div class="fixed inset-0 bg-black opacity-10 overflow-hidden"></div> -->
     <div
       ref="sheet"
@@ -10,17 +13,22 @@
         v-hammer:pan="(event) => onPan(event)"
         v-hammer:panend="(event) => onPanEnd(event)"
         v-hammer:swipe.up="onSwipeUp"
-        class="z-50 pt-2 pb-10 px-10"
+        class="z-40 pt-2 pb-8 px-10"
       >
         <span
           class="block h-1 w-12 rounded-full bg-gray-400 mx-auto cursor-move active:cursor-grab"
         ></span>
       </header>
-      <slot></slot>
+      <keep-alive>
+        <component :is="currentView" />
+      </keep-alive>
     </div>
   </div>
 </template>
 <script>
+import Inventory from './Inventory'
+import Gather from './Gather'
+
 export default {
   name: 'BottomSheet',
   props: {
@@ -29,9 +37,14 @@ export default {
       default: 'closed',
     },
   },
+  components: {
+    Inventory,
+    Gather,
+  },
   data() {
     return {
       lastPosition: 0,
+      currentView: 'Inventory',
     }
   },
 
@@ -40,7 +53,6 @@ export default {
     this.$refs.handle.hammer.set({
       direction: 'DIRECTION_ALL',
     })
-
     switch (this.initial) {
       case 'half':
         this.halfSheet()
@@ -54,6 +66,29 @@ export default {
   },
 
   methods: {
+    capitalize(name) {
+      return name[0].toUpperCase() + name.substring(1)
+    },
+
+    openMenu(e) {
+      const sheet = this.$refs.sheet.classList
+
+      if (
+        sheet.contains('sheet-closed') ||
+        this.currentView !== this.capitalize(e)
+      ) {
+        this.currentView = this.capitalize(e)
+        this.removeClass()
+        this.fullSheet()
+      } else if (
+        this.currentView === this.capitalize(e) &&
+        (sheet.contains('sheet-full') || sheet.contains('sheet-half'))
+      ) {
+        this.removeClass()
+        this.closeSheet()
+      }
+    },
+
     onPan(e) {
       const sheet = this.$refs.sheet
       if (e.direction === 8) {

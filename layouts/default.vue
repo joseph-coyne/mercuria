@@ -1,7 +1,8 @@
 <template>
-  <div class="select-none h-screen bg-gray-100">
-    <NavBar />
+  <div class="select-none h-screen w-full bg-gray-100">
+    <TopBar class="z-40" />
     <Nuxt />
+    <BottomSheet class="z-50" />
   </div>
 </template>
 

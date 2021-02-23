@@ -1,11 +1,11 @@
 <template>
   <div
-    class="flex justify-center items-center h-full text-center mx-auto bg-gray-100"
+    class="flex justify-center items-center h-full text-center mx-auto bg-gray-200"
   >
     <h1 class="title">Gather</h1>
-    <BottomSheet :initial="'half'">
+    <!-- <BottomSheet :initial="'half'">
       <NuxtChild />
-    </BottomSheet>
+    </BottomSheet> -->
   </div>
 </template>
 

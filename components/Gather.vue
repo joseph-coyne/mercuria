@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute inset-0">
+  <div class="">
     <h1 class="font-semibold text-lg pt-20">
       Gather Resource - {{ resource }}
     </h1>
