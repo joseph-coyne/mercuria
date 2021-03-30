@@ -5,7 +5,7 @@
     <h1 class="font-semibold text-lg pt-20">
       {{ resource }}
     </h1>
-    <ItemCard @animationend="animate = false" />
+    <ItemCard />
     <div
       class="flex flex-col items-center space-y-5 w-full rounded-md px-2 py-4"
     >
@@ -20,7 +20,7 @@
         </div>
       </div>
       <button
-        class="p-1 bg-gray-800 ring-2 ring-gray-800 ring-offset-4 ring-offset-yellow-400 rounded-full shadow-md text-gray-200 transition-all transform duration-100 active:text-gray-100 active:ring-offset-yellow-500 active:shadow active:scale-95 hover:scale-105 hover:ring-offset-yellow-300 hover:shadow-lg"
+        class="p-1 bg-gray-800 ring-2 ring-gray-800 ring-offset-4 ring-offset-yellow-400 rounded-full shadow-md text-gray-200 transition-all transform duration-75 linear active:text-gray-100 active:ring-offset-yellow-500 active:shadow active:scale-95 hover:scale-105 hover:ring-offset-yellow-300 hover:shadow-lg"
         @click="gather"
       >
         <base-svg file="gather-bs"></base-svg>
