@@ -1,27 +1,44 @@
 <template>
   <div
-    class="fixed top-0 z-30 flex flex-row items-center justify-between w-full"
+    class="fixed top-4 z-30 flex flex-row items-center justify-between w-full"
   >
     <div class="flex flex-row items-center px-4 space-x-4">
-      <!-- <base-svg file="heart" size="h-5 w-5 text-red-500" /> -->
-      <div class="flex flex-row bg-green-500 rounded-full w-20 h-4 m-1"></div>
-
-      <!-- <base-svg file="heart" size="h-5 w-5 text-red-500" /> -->
-      <div class="flex flex-row bg-yellow-400 rounded-full w-20 h-4 m-1"></div>
-    </div>
-    <div
-      class="flex flex-row items-center justify-between bg-gray-700 bg-opacity-50 rounded-full w-20 m-4 px-2"
-    >
-      <div
-        class="rounded-full bg-yellow-500 w-4 h-4 transform -skew-y-12"
-      ></div>
-      <h1 class="text-white font-medium">1,724</h1>
+      <div class="flex flex-col space-y-2">
+        <base-bar width="w-24" height="h-3" color="red"></base-bar>
+        <base-bar width="w-24" height="h-3" color="yellow"></base-bar>
+      </div>
+      <div class="relative flex flex-row w-24 justify-center items-center">
+        <div
+          class="absolute left-0 p-1 bg-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 rounded-full"
+        >
+          <img src="@/static/img/gold-coin-t.png" class="w-5" />
+        </div>
+        <div
+          class="text-center w-full bg-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 rounded-full"
+        >
+          <h1 class="pl-5 py-0.5 text-white text-xs font-medium">1,724</h1>
+        </div>
+      </div>
+      <div class="relative flex flex-row w-24 justify-center items-center">
+        <div
+          class="absolute left-0 p-1 bg-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 rounded-full"
+        >
+          <img src="@/static/img/quicksilver-t.png" class="w-5" />
+        </div>
+        <div
+          class="text-center w-full bg-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 rounded-full"
+        >
+          <h1 class="pl-5 py-0.5 text-white text-xs font-medium">16</h1>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import BaseBar from './BaseBar.vue'
 export default {
+  components: { BaseBar },
   name: 'TopBar',
 }
 </script>

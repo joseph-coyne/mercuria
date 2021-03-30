@@ -36,9 +36,9 @@ export default {
   ],
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
-    configPath: '~/config/tailwind.config.json',
+    // configPath: '~/config/tailwind.config.json',
+    jit: true,
     exposeConfig: true,
-    config: {},
   },
   server: {
     port: 8000, // default: 3000

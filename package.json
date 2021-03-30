@@ -17,26 +17,27 @@
     "@capacitor/ios": "^2.4.6",
     "@nuxtjs/firebase": "^7.1.2",
     "@nuxtjs/pwa": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^4.0.2",
+    "animate.css": "^4.1.1",
     "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
     "firebase": "^8.1.2",
     "hammerjs": "^2.0.8",
-    "nuxt": "^2.14.10",
-    "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
+    "nuxt": "^2.15.3",
     "vue2-hammer": "^2.1.2",
     "vuexfire": "^3.2.5"
   },
   "devDependencies": {
+    "@nuxt/postcss8": "^1.1.3",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/svg": "^0.1.12",
-    "@nuxtjs/tailwindcss": "^3.3.4",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "postcss": "^8.2.8",
     "prettier": "^2.1.2"
   }
 }

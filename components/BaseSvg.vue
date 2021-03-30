@@ -12,9 +12,8 @@
 
 <script>
 export default {
-  name: 'BaseSVG',
+  name: 'BaseSvg',
   inheritAttrs: false,
-
   props: {
     file: {
       type: String,

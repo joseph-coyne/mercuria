@@ -1,12 +1,12 @@
 <template>
-  <div class="z-50 sheet-wrap overflow-hidden">
+  <div class="sheet-wrap overflow-hidden">
     <NavBar @toggleMenu="openMenu($event)" />
 
     <!-- Optional dimmed overlay  -->
     <!-- <div class="fixed inset-0 bg-black opacity-10 overflow-hidden"></div> -->
     <div
       ref="sheet"
-      class="absolute inset-x-0 bottom-0 top-10 flex flex-col content-center items-center bg-white rounded-t-xl shadow-lg h-screen transition-all duration-200 ease"
+      class="absolute inset-x-0 bottom-0 flex flex-col content-center items-center bg-white rounded-t-xl shadow-lg h-screen transition-all duration-200 ease"
     >
       <header
         ref="handle"
@@ -175,9 +175,9 @@ export default {
   max-height: 5rem;
 }
 .sheet-half {
-  max-height: calc(50% - 56px);
+  max-height: calc(50% - 80px);
 }
 .sheet-full {
-  max-height: calc(100% - 56px);
+  max-height: calc(100% - 80px);
 }
 </style>

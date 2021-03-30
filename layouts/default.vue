@@ -1,5 +1,5 @@
 <template>
-  <div class="select-none h-screen w-full bg-gray-100">
+  <div class="select-none h-screen w-full bg-gray-100 overflow-hidden">
     <TopBar class="z-40" />
     <Nuxt />
     <BottomSheet class="z-50" />
@@ -24,6 +24,8 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px;
 }
 
 .button--green {
