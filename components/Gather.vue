@@ -30,9 +30,7 @@
 </template>
 
 <script>
-import BaseSvg from './BaseSvg.vue'
 export default {
-  components: { BaseSvg },
   name: 'Gather',
   data() {
     return {
