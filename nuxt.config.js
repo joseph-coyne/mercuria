@@ -37,7 +37,7 @@ export default {
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     // configPath: '~/config/tailwind.config.json',
-    jit: true,
+    // jit: true,
     exposeConfig: true,
   },
   server: {

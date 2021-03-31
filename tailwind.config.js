@@ -1,8 +1,10 @@
 module.exports = {
   purge: [],
-  darkMode: true, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: { craft: ['Josefin Sans', 'Sans-serif'] },
+    },
   },
   variants: {
     extend: {

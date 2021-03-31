@@ -6,7 +6,7 @@
     <!-- <div class="fixed inset-0 bg-black opacity-10 overflow-hidden"></div> -->
     <div
       ref="sheet"
-      class="absolute inset-x-0 bottom-0 flex flex-col content-center items-center bg-white rounded-t-xl shadow-lg h-screen transition-all duration-200 ease"
+      class="z-40 absolute inset-x-0 bottom-0 flex flex-col content-center items-center bg-white rounded-t-xl shadow-lg h-screen transition-all duration-200 ease"
     >
       <header
         ref="handle"

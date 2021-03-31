@@ -1,13 +1,13 @@
 <template>
   <div
-    class="flex flex-row w-28 h-3 m-1 border border-gray-800 rounded-sm ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gradient-to-b"
-    :class="[width, height, fullColor]"
+    class="flex flex-row m-1 border border-gray-800 rounded-sm ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gradient-to-b"
+    :class="[fullColor, width, height]"
   ></div>
 </template>
 
 <script>
 export default {
-  name: 'BaseBar',
+  name: 'BaseValueBar',
   props: {
     width: {
       type: String,

@@ -1,12 +1,45 @@
 <template>
   <div
-    class="flex flex-col justify-center items-center p-4 rounded-lg shadow bg-yellow-300 bg-opacity-10"
+    class="flex flex-wrap justify-center items-center overflow-hidden w-full h-full"
   >
-    <h1 class="font-semibold text-lg pt-20">
-      {{ resource }}
-    </h1>
-    <ItemCard />
     <div
+      class="relative flex flex-col justify-center items-center w-40 h-64 mr-4 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
+    >
+      <div class="w-full h-full overflow-none pb-2">
+        <img
+          src="@/static/img/backgrounds/game_background_1.png"
+          alt=""
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div
+        class="absolute z-50 bottom-24 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
+      >
+        <h1
+          class="font-craft text-sm font-semibold px-2 text-white leading-normal"
+        >
+          Skycrash Ridge
+        </h1>
+      </div>
+      <div
+        class="flex flex-row space-x-5 justify-center items-center w-full h-32 p-3 mt-3"
+      >
+        <base-item-card
+          :item="{ icon: 'st_b_09', rarity: 'common' }"
+        ></base-item-card>
+        <base-item-card
+          :item="{ icon: 'ore_n_01_b', rarity: 'common' }"
+        ></base-item-card>
+        <base-item-card
+          :item="{ icon: 'st_b_06', rarity: 'uncommon' }"
+        ></base-item-card>
+      </div>
+      <div class="bg-white w-full"></div>
+      <!-- <h1 class="font-semibold text-lg pt-20">
+      {{ resource }}
+    </h1> -->
+      <!-- <ItemCard /> -->
+      <!-- <div
       class="flex flex-col items-center space-y-5 w-full rounded-md px-2 py-4"
     >
       <div class="relative pt-1 w-full">
@@ -19,12 +52,160 @@
           ></div>
         </div>
       </div>
-      <button
-        class="p-1 bg-gray-800 ring-2 ring-gray-800 ring-offset-4 ring-offset-yellow-400 rounded-full shadow-md text-gray-200 transition-all transform duration-75 linear active:text-gray-100 active:ring-offset-yellow-500 active:shadow active:scale-95 hover:scale-105 hover:ring-offset-yellow-300 hover:shadow-lg"
-        @click="gather"
+      <base-button-round @click="gather">
+        <template>
+          <base-svg file="gather-bs"></base-svg>
+        </template>
+      </base-button-round>
+    </div> -->
+    </div>
+    <div
+      class="relative flex flex-col justify-center items-center w-40 h-64 mr-4 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
+    >
+      <div class="w-full h-full overflow-none pb-2">
+        <img
+          src="@/static/img/backgrounds/game_background_4.png"
+          alt=""
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div
+        class="absolute z-50 bottom-24 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
       >
-        <base-svg file="gather-bs"></base-svg>
-      </button>
+        <h1
+          class="font-craft text-sm font-semibold px-2 text-white leading-normal"
+        >
+          Silverpool Falls
+        </h1>
+      </div>
+      <div
+        class="flex flex-row space-x-5 justify-center items-center w-full h-32 p-3 mt-3"
+      >
+        <base-item-card
+          :item="{ icon: 'st_b_01', rarity: 'common' }"
+        ></base-item-card>
+        <base-item-card
+          :item="{ icon: 'st_b_07', rarity: 'uncommon' }"
+        ></base-item-card>
+        <base-item-card
+          :item="{ icon: 'st_b_04', rarity: 'rare' }"
+        ></base-item-card>
+      </div>
+      <div class="bg-white w-full"></div>
+    </div>
+    <div
+      class="relative flex flex-col justify-center items-center w-40 h-64 mr-4 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
+    >
+      <div class="w-full h-full overflow-none pb-2">
+        <img
+          src="@/static/img/backgrounds/game_background_2.png"
+          alt=""
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div
+        class="absolute z-50 bottom-24 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
+      >
+        <h1
+          class="font-craft text-sm font-semibold px-2 text-white leading-normal whitespace-nowrap"
+        >
+          Graygem Mountains
+        </h1>
+      </div>
+      <div
+        class="flex flex-row space-x-5 justify-center items-center w-full h-32 p-3 mt-3"
+      >
+        <base-item-card
+          :item="{ icon: 'mtr_b_01', rarity: 'uncommon' }"
+        ></base-item-card>
+        <base-item-card
+          :item="{ icon: 'st_b_03', rarity: 'uncommon' }"
+        ></base-item-card>
+        <base-item-card
+          :item="{ icon: 'gm_b_07', rarity: 'rare' }"
+        ></base-item-card>
+      </div>
+      <div class="bg-white w-full"></div>
+      <!-- <h1 class="font-semibold text-lg pt-20">
+      {{ resource }}
+    </h1> -->
+      <!-- <ItemCard /> -->
+      <!-- <div
+      class="flex flex-col items-center space-y-5 w-full rounded-md px-2 py-4"
+    >
+      <div class="relative pt-1 w-full">
+        <div
+          class="overflow-hidden h-4 text-xs flex border border-gray-800 rounded-sm ring-1 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
+        >
+          <div
+            :style="`width: ${progress}%`"
+            class="shadow-none flex flex-col justify-center text-center text-white rounded-sm bg-gradient-to-b from-green-400 via-green-500 to-green-600 transition-all ease"
+          ></div>
+        </div>
+      </div>
+      <base-button-round @click="gather">
+        <template>
+          <base-svg file="gather-bs"></base-svg>
+        </template>
+      </base-button-round>
+    </div> -->
+    </div>
+    <div
+      class="relative flex flex-col justify-center items-center w-40 h-64 mr-4 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
+    >
+      <div class="w-full h-full overflow-none pb-2">
+        <img
+          src="@/static/img/backgrounds/game_background_3.png"
+          alt=""
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div
+        class="absolute z-50 bottom-24 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
+      >
+        <h1
+          class="font-craft text-sm font-semibold px-2 text-white leading-normal"
+        >
+          Blackwood Hills
+        </h1>
+      </div>
+      <div
+        class="flex flex-row space-x-5 justify-center items-center w-full h-32 p-3 mt-3"
+      >
+        <base-item-card
+          :item="{ icon: 'st_b_08', rarity: 'uncommon' }"
+        ></base-item-card>
+        <base-item-card
+          :item="{ icon: 'ore_f_b_01', rarity: 'rare' }"
+        ></base-item-card>
+        <base-item-card
+          :item="{ icon: 'b_01_a', rarity: 'mercurial' }"
+        ></base-item-card>
+      </div>
+      <div class="bg-white w-full"></div>
+      <!-- <h1 class="font-semibold text-lg pt-20">
+      {{ resource }}
+    </h1> -->
+      <!-- <ItemCard /> -->
+      <!-- <div
+      class="flex flex-col items-center space-y-5 w-full rounded-md px-2 py-4"
+    >
+      <div class="relative pt-1 w-full">
+        <div
+          class="overflow-hidden h-4 text-xs flex border border-gray-800 rounded-sm ring-1 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
+        >
+          <div
+            :style="`width: ${progress}%`"
+            class="shadow-none flex flex-col justify-center text-center text-white rounded-sm bg-gradient-to-b from-green-400 via-green-500 to-green-600 transition-all ease"
+          ></div>
+        </div>
+      </div>
+      <base-button-round @click="gather">
+        <template>
+          <base-svg file="gather-bs"></base-svg>
+        </template>
+      </base-button-round>
+    </div> -->
     </div>
   </div>
 </template>

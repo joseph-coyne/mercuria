@@ -1,8 +1,8 @@
 <template>
   <div class="select-none h-screen w-full bg-gray-100 overflow-hidden">
-    <TopBar class="z-40" />
+    <TopBar class="z-30" />
     <Nuxt />
-    <BottomSheet class="z-50" />
+    <BottomSheet class="z-40" />
   </div>
 </template>
 
