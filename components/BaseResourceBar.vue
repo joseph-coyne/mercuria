@@ -8,7 +8,7 @@
     <div
       class="text-center w-full bg-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 rounded-full"
     >
-      <h1 class="pl-5 py-0.5 text-white text-xs font-medium">
+      <h1 class="pl-5 pt-0.5 text-white text-xs font-medium font-craft">
         {{ resource.quantity }}
       </h1>
     </div>

@@ -6,14 +6,14 @@
     <!-- <div class="fixed inset-0 bg-black opacity-10 overflow-hidden"></div> -->
     <div
       ref="sheet"
-      class="z-40 absolute inset-x-0 bottom-0 flex flex-col content-center items-center bg-white rounded-t-xl shadow-lg h-screen transition-all duration-200 ease"
+      class="z-40 absolute inset-x-0 bottom-0 flex flex-col content-center items-center bg-white rounded-t-xl shadow-lg h-screen transition-all duration-200 ease overflow-y-auto"
     >
       <header
         ref="handle"
         v-hammer:pan="(event) => onPan(event)"
         v-hammer:panend="(event) => onPanEnd(event)"
         v-hammer:swipe.up="onSwipeUp"
-        class="z-40 pt-2 pb-8 px-10"
+        class="z-40 pt-3 pb-8 px-10"
       >
         <span
           class="block h-1 w-12 rounded-full bg-gray-400 mx-auto cursor-move active:cursor-grab"

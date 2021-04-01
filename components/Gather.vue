@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex flex-wrap justify-center items-center overflow-hidden w-full h-full"
+    class="flex flex-wrap justify-center w-full h-full pb-20 overflow-y-auto"
   >
     <div
-      class="relative flex flex-col justify-center items-center w-40 h-64 mr-4 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
+      class="relative flex flex-col justify-between items-center w-40 h-64 mx-2 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
     >
       <div class="w-full h-full overflow-none pb-2">
         <img
@@ -13,19 +13,19 @@
         />
       </div>
       <div
-        class="absolute z-50 bottom-24 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
+        class="absolute z-50 bottom-20 flex border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
       >
         <h1
-          class="font-craft text-sm font-semibold px-2 text-white leading-normal"
+          class="font-craft text-xs font-semibold px-2 text-white leading-relaxed text-center"
         >
           Skycrash Ridge
         </h1>
       </div>
       <div
-        class="flex flex-row space-x-5 justify-center items-center w-full h-32 p-3 mt-3"
+        class="flex flex-row space-x-5 justify-center items-center w-full h-32 px-4"
       >
         <base-item-card
-          :item="{ icon: 'st_b_09', rarity: 'common' }"
+          :item="{ icon: 'st_t_09', rarity: 'common' }"
         ></base-item-card>
         <base-item-card
           :item="{ icon: 'ore_n_01_b', rarity: 'common' }"
@@ -60,7 +60,7 @@
     </div> -->
     </div>
     <div
-      class="relative flex flex-col justify-center items-center w-40 h-64 mr-4 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
+      class="relative flex flex-col justify-center items-center w-40 h-64 mx-2 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
     >
       <div class="w-full h-full overflow-none pb-2">
         <img
@@ -70,16 +70,16 @@
         />
       </div>
       <div
-        class="absolute z-50 bottom-24 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
+        class="absolute z-50 bottom-20 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
       >
         <h1
-          class="font-craft text-sm font-semibold px-2 text-white leading-normal"
+          class="font-craft text-xs font-semibold px-2 text-white leading-normal"
         >
           Silverpool Falls
         </h1>
       </div>
       <div
-        class="flex flex-row space-x-5 justify-center items-center w-full h-32 p-3 mt-3"
+        class="flex flex-row space-x-5 justify-center items-center w-full h-32 px-4"
       >
         <base-item-card
           :item="{ icon: 'st_b_01', rarity: 'common' }"
@@ -94,7 +94,7 @@
       <div class="bg-white w-full"></div>
     </div>
     <div
-      class="relative flex flex-col justify-center items-center w-40 h-64 mr-4 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
+      class="relative flex flex-col justify-center items-center w-40 h-64 mx-2 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
     >
       <div class="w-full h-full overflow-none pb-2">
         <img
@@ -104,16 +104,16 @@
         />
       </div>
       <div
-        class="absolute z-50 bottom-24 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
+        class="absolute z-50 bottom-20 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
       >
         <h1
-          class="font-craft text-sm font-semibold px-2 text-white leading-normal whitespace-nowrap"
+          class="font-craft text-xs font-semibold px-2 text-white leading-normal whitespace-nowrap"
         >
           Graygem Mountains
         </h1>
       </div>
       <div
-        class="flex flex-row space-x-5 justify-center items-center w-full h-32 p-3 mt-3"
+        class="flex flex-row space-x-5 justify-center items-center w-full h-32 px-4"
       >
         <base-item-card
           :item="{ icon: 'mtr_b_01', rarity: 'uncommon' }"
@@ -126,32 +126,9 @@
         ></base-item-card>
       </div>
       <div class="bg-white w-full"></div>
-      <!-- <h1 class="font-semibold text-lg pt-20">
-      {{ resource }}
-    </h1> -->
-      <!-- <ItemCard /> -->
-      <!-- <div
-      class="flex flex-col items-center space-y-5 w-full rounded-md px-2 py-4"
-    >
-      <div class="relative pt-1 w-full">
-        <div
-          class="overflow-hidden h-4 text-xs flex border border-gray-800 rounded-sm ring-1 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
-        >
-          <div
-            :style="`width: ${progress}%`"
-            class="shadow-none flex flex-col justify-center text-center text-white rounded-sm bg-gradient-to-b from-green-400 via-green-500 to-green-600 transition-all ease"
-          ></div>
-        </div>
-      </div>
-      <base-button-round @click="gather">
-        <template>
-          <base-svg file="gather-bs"></base-svg>
-        </template>
-      </base-button-round>
-    </div> -->
     </div>
     <div
-      class="relative flex flex-col justify-center items-center w-40 h-64 mr-4 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
+      class="relative flex flex-col justify-center items-center w-40 h-64 mx-2 mb-4 rounded-lg shadow-md bg-gray-300 bg-opacity-25 overflow-hidden"
     >
       <div class="w-full h-full overflow-none pb-2">
         <img
@@ -161,16 +138,16 @@
         />
       </div>
       <div
-        class="absolute z-50 bottom-24 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
+        class="absolute z-50 bottom-20 border border-gray-800 rounded-full ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
       >
         <h1
-          class="font-craft text-sm font-semibold px-2 text-white leading-normal"
+          class="font-craft text-xs font-semibold px-2 text-white leading-normal"
         >
           Blackwood Hills
         </h1>
       </div>
       <div
-        class="flex flex-row space-x-5 justify-center items-center w-full h-32 p-3 mt-3"
+        class="flex flex-row space-x-5 justify-center items-center w-full h-32 px-4"
       >
         <base-item-card
           :item="{ icon: 'st_b_08', rarity: 'uncommon' }"
@@ -183,29 +160,6 @@
         ></base-item-card>
       </div>
       <div class="bg-white w-full"></div>
-      <!-- <h1 class="font-semibold text-lg pt-20">
-      {{ resource }}
-    </h1> -->
-      <!-- <ItemCard /> -->
-      <!-- <div
-      class="flex flex-col items-center space-y-5 w-full rounded-md px-2 py-4"
-    >
-      <div class="relative pt-1 w-full">
-        <div
-          class="overflow-hidden h-4 text-xs flex border border-gray-800 rounded-sm ring-1 ring-gray-800 ring-offset-2 ring-offset-yellow-400 bg-gray-700"
-        >
-          <div
-            :style="`width: ${progress}%`"
-            class="shadow-none flex flex-col justify-center text-center text-white rounded-sm bg-gradient-to-b from-green-400 via-green-500 to-green-600 transition-all ease"
-          ></div>
-        </div>
-      </div>
-      <base-button-round @click="gather">
-        <template>
-          <base-svg file="gather-bs"></base-svg>
-        </template>
-      </base-button-round>
-    </div> -->
     </div>
   </div>
 </template>
