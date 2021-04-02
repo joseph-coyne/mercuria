@@ -2,11 +2,11 @@
   <div
     class="flex flex-wrap justify-center w-full h-full pb-20 overflow-y-auto"
   >
-    <base-event-card
+    <base-card-event
       v-for="event in events"
       :key="event.id"
       :event="event"
-    ></base-event-card>
+    ></base-card-event>
   </div>
 </template>
 

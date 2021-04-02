@@ -22,11 +22,11 @@
       v-if="hasReward"
       class="flex flex-row space-x-5 justify-center items-center w-full h-32 px-4"
     >
-      <base-item-card
+      <base-card-item
         v-for="reward in event.rewards"
         :key="reward.id"
         :item="reward"
-      ></base-item-card>
+      ></base-card-item>
     </div>
     <div class="bg-white w-full"></div>
   </div>
@@ -34,10 +34,13 @@
 
 <script>
 export default {
-  name: 'BaseEventCard',
+  name: 'BaseCardEvent',
   props: {
     event: {
       type: Object,
+      default() {
+        return { image: undefined, name: 'N/A', rewards: undefined }
+      },
     },
   },
   computed: {

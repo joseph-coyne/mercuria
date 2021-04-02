@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'BaseValueBar',
+  name: 'BaseBarValue',
   props: {
     width: {
       type: String,

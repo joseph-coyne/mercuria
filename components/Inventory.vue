@@ -1,19 +1,21 @@
 <template>
   <div
-    class="flex flex-col justify-between items-center h-full mb-20 overflow-hidden space-y-2"
+    class="flex flex-col justify-between items-center h-full w-full mb-20 overflow-hidden"
   >
-    <div
-      class="z-0 scrollbox w-11/12 h-screen px-2 pt-4 grid grid-cols-5 gap-x-2 gap-y-4 overflow-y-auto rounded-xl"
-    >
+    <div class="scrollbox relative w-full h-128 overflow-y-auto">
       <div
-        v-for="i in 25"
-        :key="i.id"
-        class="h-16 w-12 overflow-hidden rounded-md shadow-md bg-gray-700 border-2 border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white shadow-inner"
-      ></div>
+        class="absolute top-0 z-0 w-full p-10 grid grid-rows-5 grid-cols-5 gap-4 rounded-xl"
+      >
+        <div
+          v-for="i in 30"
+          :key="i.id"
+          class="h-16 w-12 rounded-md shadow-md bg-gray-700 border-2 border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white"
+        ></div>
+      </div>
     </div>
 
     <ul
-      class="sticky bottom-0 flex flex-row items-center justify-between space-x-8 h-18 min-h-18 px-2 py-2 pb-4 bg-white border-b rounded-t-xl shadow-lg"
+      class="sticky z-40 bottom-0 flex flex-row items-center justify-around space-x-8 h-18 w-full p-4 bg-white border-b rounded-t-xl"
     >
       <li><base-svg file="helmet" size="h-8 w-8" /></li>
       <li><base-svg file="sword" size="h-8 w-8" /></li>

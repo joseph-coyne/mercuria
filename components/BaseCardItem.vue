@@ -14,10 +14,13 @@
 
 <script>
 export default {
-  name: 'BaseItemCard',
+  name: 'BaseCardItem',
   props: {
     item: {
       type: Object,
+      default() {
+        return { icon: undefined, quantity: undefined }
+      },
     },
   },
   computed: {

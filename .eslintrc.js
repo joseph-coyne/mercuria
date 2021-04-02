@@ -17,6 +17,6 @@ module.exports = {
   plugins: ['prettier'],
   // add your custom rules here
   rules: {
-    'duplicate-attribute': false,
+    'duplicate-attribute': 0,
   },
 }

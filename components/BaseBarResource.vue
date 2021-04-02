@@ -17,10 +17,13 @@
 
 <script>
 export default {
-  name: 'BaseResourceBar',
+  name: 'BaseBarResource',
   props: {
     resource: {
       type: Object,
+      default() {
+        return { icon: undefined, quantity: 0 }
+      },
     },
   },
 }
