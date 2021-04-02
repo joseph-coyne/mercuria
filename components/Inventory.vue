@@ -3,18 +3,29 @@
     class="flex flex-col justify-between items-center h-full w-full mb-20 overflow-hidden"
   >
     <div class="scrollbox relative w-full h-128 overflow-y-auto">
-      <draggable
-        class="absolute top-0 z-0 w-full p-10 grid grid-rows-5 grid-cols-5 gap-4 rounded-xl"
-        group="items"
-        @start="drag = true"
-        @end="drag = false"
-      >
+      <client-only>
         <div
-          v-for="i in 30"
-          :key="i.id"
-          class="h-16 w-12 rounded-md shadow-md bg-gray-700 border-2 border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white shadow-inner"
-        ></div>
-      </draggable>
+          class="absolute top-0 z-0 w-full pt-10 px-10 grid grid-rows-5 grid-cols-5 gap-4 rounded-xl"
+        >
+          <draggable
+            :list="inventory"
+            @start="drag = true"
+            @end="drag = false"
+            class="contents"
+          >
+            <base-card-item
+              v-for="item in inventory"
+              :key="item.name"
+              :item="item"
+            ></base-card-item>
+          </draggable>
+          <div
+            v-for="(i, index) in emptySpace"
+            :key="index"
+            class="h-16 w-12 rounded-md shadow-md bg-gray-700 border-2 border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white shadow-inner"
+          ></div>
+        </div>
+      </client-only>
     </div>
 
     <ul
@@ -33,6 +44,32 @@
 <script>
 export default {
   name: 'Inventory',
+  data() {
+    return {
+      inventory: [
+        {
+          id: 1,
+          name: 'foo',
+          icon: 'ore_n_01_b',
+          rarity: 'common',
+          quantity: 10,
+        },
+        {
+          id: 2,
+          name: 'bar',
+          icon: 'st_b_06',
+          rarity: 'uncommon',
+          quantity: 3,
+        },
+        { id: 3, name: 'foobar', icon: 'st_b_09', rarity: 'rare', quantity: 1 },
+      ],
+    }
+  },
+  computed: {
+    emptySpace() {
+      return 30 - this.inventory.length
+    },
+  },
 }
 </script>
 
