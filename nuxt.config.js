@@ -56,7 +56,18 @@ export default {
       appId: '1:728967272416:web:21dd4a4b2cb7fbb3043d85',
       measurementId: 'G-2SYDR2XPTD',
     },
-
+    meta: {
+      title: 'Mercuria',
+      author: 'Tocks',
+    },
+    manifest: {
+      name: 'Mercuria',
+      short_name: 'Mercuria',
+      lang: 'en',
+      useWebmanifestExtension: false,
+      start_url: '/',
+      display: 'standalone',
+    },
     services: {
       auth: {
         persistence: 'local',

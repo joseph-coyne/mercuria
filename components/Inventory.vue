@@ -2,59 +2,18 @@
   <div
     class="flex flex-col justify-between items-center h-full mb-20 overflow-hidden space-y-2"
   >
-    <div class="flex flex-col w-11/12 rounded-md bg-gray-300 pb-2">
+    <div
+      class="z-0 scrollbox w-11/12 h-screen px-2 pt-4 grid grid-cols-5 gap-x-2 gap-y-4 overflow-y-auto rounded-xl"
+    >
       <div
-        class="w-full grid grid-rows-4 grid-cols-4 grid-flow-col gap-2 items-center justify-items-center py-4"
-      >
-        <div class="h-12 w-12 bg-white rounded-md shadow"></div>
-        <div class="h-12 w-12 bg-white rounded-md shadow"></div>
-        <div class="h-12 w-12 bg-white rounded-md shadow"></div>
-        <div class="h-12 w-12 bg-white rounded-md shadow"></div>
-        <div class="row-span-4 col-span-2 h-full w-24 bg-gray-500"></div>
-        <div class="h-12 w-12 bg-white rounded-md shadow"></div>
-        <div class="h-12 w-12 bg-white rounded-md shadow"></div>
-        <div class="h-12 w-12 bg-white rounded-md shadow"></div>
-        <div class="h-12 w-12 bg-white rounded-md shadow"></div>
-      </div>
-      <div class="grid grid-rows-3 grid-cols-2 grid-flows-col gap-x-4 px-4">
-        <div class="pb-2">
-          <label class="text-xs font-medium" for="strength">Strength</label>
-          <div class="w-full h-2 px-2 bg-red-500 rounded-full"></div>
-        </div>
-        <div class="pb-2">
-          <label class="text-xs font-medium" for="Wisdom">Wisdom</label>
-          <div class="w-full h-2 px-2 bg-blue-500 rounded-full"></div>
-        </div>
-        <div class="pb-2">
-          <label class="text-xs font-medium" for="Charisma">Charisma</label>
-          <div class="w-full h-2 px-2 bg-purple-500 rounded-full"></div>
-        </div>
-        <div class="pb-2">
-          <label class="text-xs font-medium" for="Dexterity">Dexterity</label>
-          <div class="w-full h-2 px-2 bg-green-500 rounded-full"></div>
-        </div>
-        <div class="pb-2">
-          <label class="text-xs font-medium" for="Perception">Perception</label>
-          <div class="w-full h-2 px-2 bg-yellow-400 rounded-full"></div>
-        </div>
-        <div class="pb-2">
-          <label class="text-xs font-medium" for="Constitution"
-            >Constitution</label
-          >
-          <div class="w-full h-2 bg-red-800 rounded-full"></div>
-        </div>
-      </div>
-    </div>
-    <div class="w-11/12 grid grid-rows-3 grid-cols-6 gap-2 w-3/4">
-      <div
-        v-for="i in 18"
+        v-for="i in 25"
         :key="i.id"
-        class="h-12 w-12 bg-gray-300 rounded-md shadow-inner"
+        class="h-16 w-12 overflow-hidden rounded-md shadow-md bg-gray-700 border-2 border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white shadow-inner"
       ></div>
     </div>
 
     <ul
-      class="h-1/6 flex flex-row items-center justify-between space-x-8 p-2 border"
+      class="sticky bottom-0 flex flex-row items-center justify-between space-x-8 h-18 min-h-18 px-2 py-2 pb-4 bg-white border-b rounded-t-xl shadow-lg"
     >
       <li><base-svg file="helmet" size="h-8 w-8" /></li>
       <li><base-svg file="sword" size="h-8 w-8" /></li>
@@ -72,4 +31,25 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.scrollbox {
+  z-index: 10;
+  background: linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0)),
+    linear-gradient(rgba(255, 255, 255, 0), #ffffff 66%) 0 100%,
+    radial-gradient(
+      farthest-side at 50% 0,
+      rgba(107, 107, 107, 0.5),
+      rgba(0, 0, 0, 0)
+    ),
+    radial-gradient(
+        farthest-side at 50% 100%,
+        rgba(107, 107, 107, 0.5),
+        rgba(0, 0, 0, 0)
+      )
+      0 100%;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll;
+  background-size: 100% 75px, 100% 75px, 100% 25px, 100% 25px;
+}
+</style>
