@@ -16,6 +16,9 @@ export default {
       default: 'default',
     },
   },
+  data() {
+    return {}
+  },
   computed: {
     fullColor() {
       let color

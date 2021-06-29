@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex flex-row w-24 justify-center items-center w-20">
+  <div class="relative flex flex-row justify-center items-center w-20">
     <div
       class="absolute left-0 p-1 bg-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-yellow-400 rounded-full"
     >

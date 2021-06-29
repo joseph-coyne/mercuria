@@ -1,7 +1,7 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center h-16 w-12 overflow-hidden rounded-md shadow-md bg-gray-800 border-2 border-gray-800 ring-2 ring-gray-800 ring-offset-2"
-    :class="fullColor"
+    class="flex flex-col items-center justify-center w-12 overflow-hidden rounded-md shadow-md bg-gray-800 border-2 border-gray-800 ring-2 ring-gray-800 ring-offset-2"
+    :class="[fullColor, item.quantity ? 'h-16' : 'h-8']"
   >
     <div class="bg-gray-800 overflow-hidden">
       <img :src="require(`@/static/img/ore/${item.icon}.png`)" class="w-full" />
@@ -32,8 +32,9 @@ export default {
     fullColor() {
       let color
       if (this.item.rarity === 'common') {
-        color = 'gray'
-      } else if (this.item.rarity === 'uncommon') {
+        return 'ring-offset-white'
+      }
+      if (this.item.rarity === 'uncommon') {
         color = 'green'
       } else if (this.item.rarity === 'rare') {
         color = 'blue'
